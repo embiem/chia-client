@@ -33,6 +33,9 @@ class RpcClient {
     }
 
     protected async request<T>(route: string, body: Record<string, string | number | boolean | string[] | undefined>): Promise<T> {
+        // Should not be doing this: Temporary hack to get chiaexplorer up and running quickly
+        process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
         const { data } = await axios.post<T>(`${this.baseUri()}/${route}`, body, { httpsAgent: this.agent, timeout: 10000 });
 
         return data;
