@@ -1,5 +1,5 @@
 export interface RewardClaim {
-    amount: string;
+    amount: number;
     parent_coin_info: string;
     puzzle_hash: string;
 }
