@@ -1,4 +1,4 @@
-import { BlocksResponse, BlockchainStateResponse, CoinResponse, NetspaceResponse, BlockResponse, BlockRecordResponse, UnfinishedBlockHeadersResponse, AdditionsAndRemovalsResponse } from './types/FullNode/RpcResponse';
+import { BlocksResponse, BlockchainStateResponse, CoinResponse, CoinRecordResponse, NetspaceResponse, BlockResponse, BlockRecordResponse, UnfinishedBlockHeadersResponse, AdditionsAndRemovalsResponse } from './types/FullNode/RpcResponse';
 import { ChiaOptions, RpcClient } from './RpcClient';
 import { Block } from './types/FullNode/Block';
 import { CertPathRequired } from './types/CertPathRequired';
@@ -71,6 +71,12 @@ class FullNode extends RpcClient {
     public async getAdditionsAndRemovals(hash: string): Promise<AdditionsAndRemovalsResponse> {
         return this.request<AdditionsAndRemovalsResponse>('get_additions_and_removals', {
             header_hash: hash
+        });
+    }
+
+    public async getCoinRecordByName(name: string): Promise<CoinRecordResponse> {
+        return this.request<CoinRecordResponse>('get_coin_record_by_name', {
+            name
         });
     }
 }
