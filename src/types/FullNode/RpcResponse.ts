@@ -4,6 +4,7 @@ import { CoinRecord } from './CoinRecord';
 import { BlockchainState } from './BlockchainState';
 import { BlockRecord } from './BlockRecord';
 import { RpcResponse } from '../RpcResponse';
+import { MempoolItem } from './MempoolItem';
 
 export interface BlockchainStateResponse extends RpcResponse {
     blockchain_state: BlockchainState;
@@ -44,4 +45,16 @@ export interface AdditionsAndRemovalsResponse extends RpcResponse {
 
 export interface NetspaceResponse extends RpcResponse {
     space: number;
+}
+
+export interface TransactionIdsResponse extends RpcResponse {
+    tx_ids: Array<string>;
+}
+
+export interface MempoolItemsResponse extends RpcResponse {
+    mempool_items: Array<MempoolItem>;
+}
+
+export interface MempoolItemResponse extends RpcResponse {
+    mempool_item: MempoolItem;
 }
