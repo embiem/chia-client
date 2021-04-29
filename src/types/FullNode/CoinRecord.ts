@@ -1,6 +1,6 @@
 export interface CoinRecord {
     coin: {
-        amount: string;
+        amount: number;
         parent_coin_info: string;
         puzzle_hash: string;
     };
