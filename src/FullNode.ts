@@ -6,6 +6,7 @@ import {
   NetspaceResponse,
   BlockResponse,
   BlockRecordResponse,
+  BlockRecordsResponse,
   UnfinishedBlockHeadersResponse,
   AdditionsAndRemovalsResponse,
   TransactionIdsResponse,
@@ -74,6 +75,16 @@ class FullNode extends RpcClient {
   public async getBlockRecord(hash: string): Promise<BlockRecordResponse> {
     return this.request<BlockRecordResponse>("get_block_record", {
       header_hash: hash,
+    });
+  }
+
+  public async getBlockRecords(
+    start: number,
+    end: number
+  ): Promise<BlockRecordsResponse> {
+    return this.request<BlockRecordsResponse>("get_block_records", {
+      start,
+      end,
     });
   }
 

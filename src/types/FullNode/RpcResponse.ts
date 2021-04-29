@@ -30,6 +30,10 @@ export interface BlockRecordResponse extends RpcResponse {
     block_record: BlockRecord;
 }
 
+export interface BlockRecordsResponse extends RpcResponse {
+    block_records: Array<BlockRecord>;
+}
+
 export interface CoinResponse extends RpcResponse {
     coin_records: Array<CoinRecord>;
 }
